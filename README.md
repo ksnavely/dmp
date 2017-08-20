@@ -85,3 +85,46 @@ From the 2016 harvest summary:
 The values presented here are calculated estimates.
 The precision of the statewide take estimate is within 1-2 percent.
 ```
+
+## Usage
+
+To be honest I mostly did some rough hacking via ipython :)
+
+I've put together something a little more traditional too:
+
+```
+python -m dmp.py
+```
+
+As set up, dmp will return sorted tables of three measures:
+  - an arbitrary-unit value 's1': (deer taken / sq mile) * (dmp success avg) * (num target dmps)
+ 
+  - total combined take density.
+  - dmps per square mile (5 if max total dmps)
+    - the max dmps throw a wrench into the match, but 5 is a fair, perhaps conservative value
+
+```
+ python -m dmp
+
+
+**** Sorted by s1: (deer taken / sq mile) * (dmp success avg) * (num target dmps)
+       area dmp_target  dmp_per_sq_mile  success_avg res_1   res_2  bucks_taken  buck_sq_mile  total_deer  total_sq_mile        s1  dmps_sq_mile
+wmu                                                                                                                                             
+3M    749.2      35900             47.9         10.9  HIGH    HIGH         2880           3.8        6781            9.1  1.000000          47.9
+7J    838.9      31300             37.3         11.0  HIGH    HIGH         2385           2.8        6164            7.3  0.705826          37.3
+...
+
+**** Sorted by deer taken / sq mile
+       area dmp_target  dmp_per_sq_mile  success_avg   res_1   res_2  bucks_taken  buck_sq_mile  total_deer  total_sq_mile        s1  dmps_sq_mile
+wmu                                                                                                                                               
+3M    749.2      35900             47.9         10.9    HIGH    HIGH         2880           3.8        6781            9.1  1.000000          47.9
+4C    164.8       1400              8.5         23.2     MED    NONE          725           4.4        1331            8.1  0.073882           8.5
+...
+
+**** Sorted by dmps per square mile (5 if max total dmps)
+      area dmp_target  dmp_per_sq_mile  success_avg res_1 res_2  bucks_taken  buck_sq_mile  total_deer  total_sq_mile        s1  dmps_sq_mile
+wmu                                                                                                                                          
+4J   148.9        max              NaN          9.3  HIGH  HIGH          223           1.5         495            3.3  0.064165          50.0
+3S   430.8        max              NaN          9.8  HIGH  HIGH          562           1.3        1259            2.9  0.171912          50.0
+...
+```

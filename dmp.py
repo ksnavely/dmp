@@ -1,3 +1,9 @@
+"""
+dmp
+
+Sorting and measures on deer harvest data from the NY DEC 2016
+harvest summary.
+"""
 import pandas as pd
 pd.set_option('expand_frame_repr', False)
 
@@ -8,7 +14,7 @@ TOO_FAR_REGIONS = ["1", "2", "8", "9"]
 EXCLUSIONS = [
     "4T", # just tidal flats
     "7H", # no public land
-    "6G"
+    "6G" # very far away
 ]
 
 
@@ -109,3 +115,6 @@ def process_data():
     df = apply_sorting_indexes(df)
 
     return df
+
+if __name__ == "__main__":
+    df = process_data()
