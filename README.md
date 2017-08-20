@@ -11,10 +11,10 @@ virtualenv venv
 pip install -r requirements.txt
 ```
 
-[Pandas](https://pypi.python.org/pypi/pandas/0.20.3): "Powerful data structures for data analysis, time series,and statistics"
+[Pandas](https://pypi.python.org/pypi/pandas/0.20.3): "Powerful data structures for data analysis, time series, and statistics"
 
 ## Data
-Two data files are used to generate tables of NY deer units.
+Two data files are used to generate tables of NY deer unit statistics.
 
 ### dmp.csv:
 ```
@@ -25,7 +25,7 @@ wmu  area    dmp_target  dmp_per_sq_mile  success_avg  res_1   res_2   nres_1  n
 ...
 ```
 
-This file contains dmp-specific information. WMU size, target dmp count, target dmp per square mile, dmp success average
+This file contains dmp-specific information.
  - wmu: wildlife management unit
  - area: total land area of the WMU in square miles
  - dmp_target: the target number of distributed dmp tags. 'max' indicates that the NY DEC will distribute as many as possible.
